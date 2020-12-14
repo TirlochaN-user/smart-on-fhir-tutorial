@@ -8,8 +8,6 @@
     }
 
     function onReady(smart)  {
-      console.log('smart');
-      console.log(smart);
       if (smart.hasOwnProperty('patient')) {
         var patient = smart.patient;
      
@@ -31,6 +29,8 @@
         $.when(pt, obv).fail(onError);
 
         $.when(pt, obv).done(function(patient, obv) {
+          console.log('smart');
+          console.log(smart);
           console.log(patient);
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;

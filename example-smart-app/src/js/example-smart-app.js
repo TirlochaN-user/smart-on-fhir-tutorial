@@ -21,7 +21,7 @@
                               'http://loinc.org|8480-6', 'http://loinc.org|2085-9',
                               'http://loinc.org|2089-1', 'http://loinc.org|55284-4',
                               'http://loinc.org|29463-7','http://loinc.org|8867-4',
-                              'http://loinc.org|2708-6']
+                              'http://loinc.org|2708-6', 'http://loinc.org|49051-6']
                       }
                     }
                   });
@@ -35,8 +35,8 @@
           var byCodes = smart.byCodes(obv, 'code');
           var gender = patient.gender;
           console.log("byCodes:");
-          console.log(byCodes("8302-2"));
           console.log(byCodes("2708-6"));
+          console.log(byCodes("49051-6"));
 
           var fname = '';
           var lname = '';
@@ -55,6 +55,7 @@
           var weight=byCodes('29463-7');
           var heartrate=byCodes('8867-4');
           var spo2=byCodes('2708-6');
+          var gage=byCodes('49051-6');
 
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
@@ -65,6 +66,7 @@
           p.weight = getQuantityValueAndUnit(weight[0]);
           p.heartrate = getQuantityValueAndUnit(heartrate[0]);
           p.spo2=getQuantityValueAndUnit(spo2[0]);
+          p.gage=getQuantityValueAndUnit(gage[0]);
 
           if (typeof systolicbp != 'undefined')  {
             p.systolicbp = systolicbp;
@@ -102,6 +104,7 @@
       weight: {value: ''},
       heartrate:{value:''},
       spo2:{value:''},
+      gage:{value:''},
 
       systolicbp: {value: ''},
       diastolicbp: {value: ''},
@@ -150,6 +153,7 @@
     $('#weight').html(p.weight);
     $('#heartrate').html(p.heartrate);
     $('#spo2').html(p.spo2);
+    $('#gage').html(p.gage);
     // $('#systolicbp').html(p.systolicbp);
     // $('#diastolicbp').html(p.diastolicbp);
     // $('#ldl').html(p.ldl);
